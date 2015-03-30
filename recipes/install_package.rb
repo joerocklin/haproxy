@@ -2,7 +2,7 @@
 # Cookbook Name:: haproxy
 # Recipe:: install_package
 #
-# Copyright 2009, Opscode, Inc.
+# Copyright 2009, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,9 @@
 # limitations under the License.
 #
 
-package "haproxy"
+package "haproxy" do
+  version node['haproxy']['package']['version'] if node['haproxy']['package']['version']
+end
 
 directory node['haproxy']['conf_dir']
 

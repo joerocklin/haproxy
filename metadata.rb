@@ -1,10 +1,10 @@
 name              "haproxy"
-maintainer        "Opscode, Inc."
-maintainer_email  "cookbooks@opscode.com"
+maintainer        "Chef Software, Inc."
+maintainer_email  "cookbooks@chef.io"
 license           "Apache 2.0"
 description       "Installs and configures haproxy"
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version           "1.6.3"
+version           "1.6.6"
 
 recipe "haproxy", "Installs and configures haproxy"
 recipe "haproxy::app_lb", "Installs and configures haproxy by searching for nodes of a particular role"
@@ -227,4 +227,9 @@ attribute "haproxy/source/target_arch",
 attribute "haproxy/source/use_pcre",
   :display_name => "HAProxy source use PCRE",
   :description => "Whether to build with libpcre support.",
+  :required => "optional"
+
+attribute "haproxy/package/version",
+  :display_name => "HAProxy package version",
+  :description => "The version of haproxy to install.",
   :required => "optional"

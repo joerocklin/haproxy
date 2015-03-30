@@ -2,7 +2,7 @@
 # Cookbook Name:: haproxy
 # Default:: default
 #
-# Copyright 2010, Opscode, Inc.
+# Copyright 2010, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ default['haproxy']['user'] = "haproxy"
 default['haproxy']['group'] = "haproxy"
 
 default['haproxy']['enable_default_http'] = true
+default['haproxy']['mode'] = "http"
 default['haproxy']['incoming_address'] = "0.0.0.0"
 default['haproxy']['incoming_port'] = 80
 default['haproxy']['members'] = [{
@@ -56,6 +57,7 @@ default['haproxy']['pid_file'] = "/var/run/haproxy.pid"
 
 default['haproxy']['defaults_options'] = ["httplog", "dontlognull", "redispatch"]
 default['haproxy']['x_forwarded_for'] = false
+default['haproxy']['global_options'] = {}
 default['haproxy']['defaults_timeouts']['connect'] = "5s"
 default['haproxy']['defaults_timeouts']['client'] = "50s"
 default['haproxy']['defaults_timeouts']['server'] = "50s"
@@ -79,6 +81,8 @@ default['haproxy']['source']['target_arch'] = ''
 default['haproxy']['source']['use_pcre'] = false
 default['haproxy']['source']['use_openssl'] = false
 default['haproxy']['source']['use_zlib'] = false
+
+default['haproxy']['package']['version'] = nil
 
 default['haproxy']['listeners'] = {
   'listen' => {},
